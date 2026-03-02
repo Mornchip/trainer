@@ -1,0 +1,5 @@
+# 音频对齐修复模块依赖 (audio_align_repair.py)
+openai-whisper>=20230314
+pydub>=0.25.1
+pandas>=1.3.0
+openpyxl>=3.0.0

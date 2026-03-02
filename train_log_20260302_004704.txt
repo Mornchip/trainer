@@ -1,0 +1,1082 @@
+📄 训练日志已写入: /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/train_log_20260302_004704.txt
+============================================================
+✅ 检测到数据已准备，跳过数据准备与清洗，直接训练: /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/segments/cleaned_audio
+🆕 从头开始训练：不加载 checkpoint
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/librosa/core/intervals.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_filename
+📊 准备完成: train+val=456, 词表字符数=728
+ | > Found 416 files in /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/segments/cleaned_audio
+ > Setting up Audio Processor...
+ | > sample_rate:22050
+ | > resample:False
+ | > num_mels:80
+ | > log_func:np.log10
+ | > min_level_db:0
+ | > frame_shift_ms:None
+ | > frame_length_ms:None
+ | > ref_level_db:None
+ | > fft_size:1024
+ | > power:None
+ | > preemphasis:0.0
+ | > griffin_lim_iters:None
+ | > signal_norm:None
+ | > symmetric_norm:None
+ | > mel_fmin:0
+ | > mel_fmax:None
+ | > pitch_fmin:None
+ | > pitch_fmax:None
+ | > spec_gain:20.0
+ | > stft_pad_mode:reflect
+ | > max_norm:1.0
+ | > clip_norm:True
+ | > do_trim_silence:False
+ | > trim_db:60
+ | > do_sound_norm:False
+ | > do_amp_to_db_linear:True
+ | > do_amp_to_db_mel:True
+ | > do_rms_norm:False
+ | > db_level:None
+ | > stats_path:None
+ | > base:10
+ | > hop_length:256
+ | > win_length:1024
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: False
+ | > Precision: float32
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 208
+ | > Num. of Torch Threads: 25
+ | > Torch seed: 54321
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ | > Torch TF32 MatMul: False
+ > Start Tensorboard: tensorboard --logdir=/root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+ > Model has 83176876 parameters
+🎯 开始训练 VITS（本文件自包含）...
+   学习率: 5e-06 → 2000 轮时降至 50% 即 2.50e-06，grad_clip=[1.0, 1.0]
+
+[4m[1m > EPOCH: 0/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+
+> DataLoader initialization
+| > Tokenizer:
+	| > add_blank: True
+	| > use_eos_bos: False
+	| > use_phonemes: False
+| > Number of instances : 416
+ | > Preprocessing samples
+ | > Max text length: 43
+ | > Min text length: 4
+ | > Avg text length: 17.213942307692307
+ | 
+ | > Max audio length: 141031.0
+ | > Min audio length: 33169.0
+ | > Avg audio length: 60497.814903846156
+ | > Num. instances discarded samples: 0
+ | > Batch group size: 0.
+
+[1m > TRAINING (2026-03-02 00:47:23) [0m
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/torch/functional.py:681: UserWarning: stft with return_complex=False is deprecated. In a future pytorch release, stft will return complex tensors for all inputs, and return_complex=False will raise an error.
+Note: you can still call torch.view_as_real on the complex output to recover the old return format. (Triggered internally at /pytorch/aten/src/ATen/native/SpectralOps.cpp:874.)
+  return _VF.stft(  # type: ignore[attr-defined]
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/TTS/tts/models/vits.py:1273: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):  # use float32 for the criterion
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/TTS/tts/models/vits.py:1284: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/TTS/tts/models/vits.py:1311: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):  # use float32 for the criterion
+
+[1m   --> TIME: 2026-03-02 00:47:26 -- STEP: 0/26 -- GLOBAL_STEP: 0[0m
+     | > loss_disc: 5.87  (5.87)
+     | > loss_disc_real_0: 0.97  (0.97)
+     | > loss_disc_real_1: 0.98  (0.98)
+     | > loss_disc_real_2: 0.96  (0.96)
+     | > loss_disc_real_3: 0.99  (0.99)
+     | > loss_disc_real_4: 0.96  (0.96)
+     | > loss_disc_real_5: 1.00  (1.00)
+     | > loss_0: 5.87  (5.87)
+     | > grad_norm_0: tensor(6.6055, device='cuda:0')  (tensor(6.6055, device='cuda:0'))
+     | > loss_gen: 4.34  (4.34)
+     | > loss_kl: 196.23  (196.23)
+     | > loss_feat: 0.49  (0.49)
+     | > loss_mel: 67.84  (67.84)
+     | > loss_duration: 22.69  (22.69)
+     | > loss_1: 291.59  (291.59)
+     | > grad_norm_1: tensor(2013.2900, device='cuda:0')  (tensor(2013.2900, device='cuda:0'))
+     | > current_lr_0: 0.0002 
+     | > current_lr_1: 0.0002 
+     | > step_time: 1.23  (1.23)
+     | > loader_time: 1.7684  (1.7683601379394531)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time: 0.004814643859863282 [0m(+0)
+     | > avg_step_time: 0.30 [0m(+0)
+     | > avg_loss_disc: 2.89 [0m(+0)
+     | > avg_loss_disc_real_0: 0.26 [0m(+0)
+     | > avg_loss_disc_real_1: 0.25 [0m(+0)
+     | > avg_loss_disc_real_2: 0.25 [0m(+0)
+     | > avg_loss_disc_real_3: 0.26 [0m(+0)
+     | > avg_loss_disc_real_4: 0.26 [0m(+0)
+     | > avg_loss_disc_real_5: 0.26 [0m(+0)
+     | > avg_loss_0: 2.89 [0m(+0)
+     | > avg_grad_norm_0: tensor(4.6330, device='cuda:0') [0m(+0)
+     | > avg_loss_gen: 1.94 [0m(+0)
+     | > avg_loss_kl: 20.22 [0m(+0)
+     | > avg_loss_feat: 2.00 [0m(+0)
+     | > avg_loss_mel: 44.83 [0m(+0)
+     | > avg_loss_duration: 26.08 [0m(+0)
+     | > avg_loss_1: 95.08 [0m(+0)
+     | > avg_grad_norm_1: tensor(229.7028, device='cuda:0') [0m(+0)
+  [Epoch 计时] 本轮训练: 14.10s | 加载数据: 0.01s/step | step: 0.30s | 累计: 0.20min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_26.pth
+
+[4m[1m > EPOCH: 1/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:47:39) [0m
+
+[1m   --> TIME: 2026-03-02 00:47:50 -- STEP: 24/26 -- GLOBAL_STEP: 50[0m
+     | > loss_disc: 2.30  (2.32)
+     | > loss_disc_real_0: 0.22  (0.21)
+     | > loss_disc_real_1: 0.19  (0.23)
+     | > loss_disc_real_2: 0.31  (0.23)
+     | > loss_disc_real_3: 0.19  (0.23)
+     | > loss_disc_real_4: 0.22  (0.22)
+     | > loss_disc_real_5: 0.27  (0.23)
+     | > loss_0: 2.30  (2.32)
+     | > grad_norm_0: tensor(22.4185, device='cuda:0')  (tensor(10.2573, device='cuda:0'))
+     | > loss_gen: 3.11  (2.38)
+     | > loss_kl: 3.96  (4.51)
+     | > loss_feat: 5.90  (4.02)
+     | > loss_mel: 37.06  (37.69)
+     | > loss_duration: 28.26  (25.15)
+     | > loss_1: 78.29  (73.75)
+     | > grad_norm_1: tensor(156.0291, device='cuda:0')  (tensor(157.1677, device='cuda:0'))
+     | > current_lr_0: 0.00019999987817209572 
+     | > current_lr_1: 0.00019999987817209572 
+     | > step_time: 0.30  (0.29)
+     | > loader_time: 0.0042  (0.058177441358566305)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.05612753868103029 [0m(+0.05131289482116701)
+     | > avg_step_time:[92m 0.29 [0m(-0.01)
+     | > avg_loss_disc:[92m 2.32 [0m(-0.57)
+     | > avg_loss_disc_real_0:[92m 0.22 [0m(-0.04)
+     | > avg_loss_disc_real_1:[92m 0.23 [0m(-0.02)
+     | > avg_loss_disc_real_2:[92m 0.23 [0m(-0.02)
+     | > avg_loss_disc_real_3:[92m 0.23 [0m(-0.03)
+     | > avg_loss_disc_real_4:[92m 0.22 [0m(-0.04)
+     | > avg_loss_disc_real_5:[92m 0.23 [0m(-0.03)
+     | > avg_loss_0:[92m 2.32 [0m(-0.57)
+     | > avg_grad_norm_0:[91m tensor(10.2119, device='cuda:0') [0m(+tensor(5.5789, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.42 [0m(+0.48)
+     | > avg_loss_kl:[92m 4.49 [0m(-15.74)
+     | > avg_loss_feat:[91m 4.09 [0m(+2.09)
+     | > avg_loss_mel:[92m 37.51 [0m(-7.32)
+     | > avg_loss_duration:[92m 25.25 [0m(-0.83)
+     | > avg_loss_1:[92m 73.76 [0m(-21.32)
+     | > avg_grad_norm_1:[92m tensor(155.9713, device='cuda:0') [0m(tensor(-73.7315, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 14.00s | 加载数据: 0.06s/step | step: 0.29s | 累计: 0.50min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_52.pth
+
+[4m[1m > EPOCH: 2/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:47:53) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.04984878540039062 [0m(-0.006278753280639669)
+     | > avg_step_time:[92m 0.28 [0m(-0.01)
+     | > avg_loss_disc:[92m 2.15 [0m(-0.16)
+     | > avg_loss_disc_real_0:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_1:[91m 0.24 [0m(+0.01)
+     | > avg_loss_disc_real_2:[92m 0.23 [0m(-0.00)
+     | > avg_loss_disc_real_3:[92m 0.23 [0m(-0.00)
+     | > avg_loss_disc_real_4:[91m 0.23 [0m(+0.01)
+     | > avg_loss_disc_real_5:[92m 0.22 [0m(-0.01)
+     | > avg_loss_0:[92m 2.15 [0m(-0.16)
+     | > avg_grad_norm_0:[92m tensor(8.2959, device='cuda:0') [0m(tensor(-1.9160, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.55 [0m(+0.13)
+     | > avg_loss_kl:[92m 2.68 [0m(-1.81)
+     | > avg_loss_feat:[91m 4.56 [0m(+0.47)
+     | > avg_loss_mel:[92m 35.22 [0m(-2.30)
+     | > avg_loss_duration:[91m 25.89 [0m(+0.64)
+     | > avg_loss_1:[92m 70.90 [0m(-2.86)
+     | > avg_grad_norm_1:[91m tensor(161.8008, device='cuda:0') [0m(+tensor(5.8295, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.70s | 加载数据: 0.05s/step | step: 0.28s | 累计: 0.70min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_78.pth
+
+[4m[1m > EPOCH: 3/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:48:07) [0m
+
+[1m   --> TIME: 2026-03-02 00:48:17 -- STEP: 22/26 -- GLOBAL_STEP: 100[0m
+     | > loss_disc: 2.05  (2.07)
+     | > loss_disc_real_0: 0.13  (0.15)
+     | > loss_disc_real_1: 0.25  (0.23)
+     | > loss_disc_real_2: 0.23  (0.22)
+     | > loss_disc_real_3: 0.21  (0.22)
+     | > loss_disc_real_4: 0.23  (0.23)
+     | > loss_disc_real_5: 0.24  (0.21)
+     | > loss_0: 2.05  (2.07)
+     | > grad_norm_0: tensor(5.1518, device='cuda:0')  (tensor(8.9944, device='cuda:0'))
+     | > loss_gen: 3.06  (2.64)
+     | > loss_kl: 2.15  (2.06)
+     | > loss_feat: 5.57  (4.82)
+     | > loss_mel: 35.94  (34.88)
+     | > loss_duration: 27.83  (25.60)
+     | > loss_1: 74.56  (69.99)
+     | > grad_norm_1: tensor(211.0648, device='cuda:0')  (tensor(174.2581, device='cuda:0'))
+     | > current_lr_0: 0.00019999890355066515 
+     | > current_lr_1: 0.00019999890355066515 
+     | > step_time: 0.29  (0.28)
+     | > loader_time: 0.0038  (0.06207380511543967)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.055149450302124016 [0m(+0.005300664901733393)
+     | > avg_step_time:[91m 0.28 [0m(+0.00)
+     | > avg_loss_disc:[92m 2.04 [0m(-0.11)
+     | > avg_loss_disc_real_0:[92m 0.14 [0m(-0.08)
+     | > avg_loss_disc_real_1:[92m 0.23 [0m(-0.01)
+     | > avg_loss_disc_real_2:[92m 0.23 [0m(-0.00)
+     | > avg_loss_disc_real_3:[92m 0.22 [0m(-0.00)
+     | > avg_loss_disc_real_4:[92m 0.23 [0m(-0.01)
+     | > avg_loss_disc_real_5:[92m 0.22 [0m(-0.00)
+     | > avg_loss_0:[92m 2.04 [0m(-0.11)
+     | > avg_grad_norm_0:[91m tensor(8.7555, device='cuda:0') [0m(+tensor(0.4596, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.72 [0m(+0.17)
+     | > avg_loss_kl:[92m 2.10 [0m(-0.59)
+     | > avg_loss_feat:[91m 4.99 [0m(+0.43)
+     | > avg_loss_mel:[92m 34.80 [0m(-0.41)
+     | > avg_loss_duration:[91m 26.09 [0m(+0.20)
+     | > avg_loss_1:[92m 70.70 [0m(-0.20)
+     | > avg_grad_norm_1:[91m tensor(180.9869, device='cuda:0') [0m(+tensor(19.1862, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.40s | 加载数据: 0.06s/step | step: 0.28s | 累计: 0.90min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_104.pth
+
+[4m[1m > EPOCH: 4/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:48:21) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.058190383911132806 [0m(+0.0030409336090087905)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[92m 1.85 [0m(-0.20)
+     | > avg_loss_disc_real_0:[92m 0.10 [0m(-0.04)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-0.01)
+     | > avg_loss_disc_real_2:[92m 0.22 [0m(-0.01)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.02)
+     | > avg_loss_disc_real_4:[92m 0.21 [0m(-0.02)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.01)
+     | > avg_loss_0:[92m 1.85 [0m(-0.20)
+     | > avg_grad_norm_0:[92m tensor(8.3074, device='cuda:0') [0m(tensor(-0.4481, device='cuda:0'))
+     | > avg_loss_gen:[91m 3.03 [0m(+0.30)
+     | > avg_loss_kl:[92m 1.77 [0m(-0.32)
+     | > avg_loss_feat:[91m 5.71 [0m(+0.72)
+     | > avg_loss_mel:[92m 33.66 [0m(-1.14)
+     | > avg_loss_duration:[91m 26.32 [0m(+0.23)
+     | > avg_loss_1:[92m 70.49 [0m(-0.21)
+     | > avg_grad_norm_1:[91m tensor(262.9362, device='cuda:0') [0m(+tensor(81.9493, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 15.40s | 加载数据: 0.06s/step | step: 0.29s | 累计: 1.20min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_130.pth
+
+[4m[1m > EPOCH: 5/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:48:36) [0m
+
+[1m   --> TIME: 2026-03-02 00:48:45 -- STEP: 20/26 -- GLOBAL_STEP: 150[0m
+     | > loss_disc: 1.33  (1.96)
+     | > loss_disc_real_0: 0.03  (0.08)
+     | > loss_disc_real_1: 0.23  (0.23)
+     | > loss_disc_real_2: 0.20  (0.22)
+     | > loss_disc_real_3: 0.14  (0.20)
+     | > loss_disc_real_4: 0.21  (0.23)
+     | > loss_disc_real_5: 0.13  (0.21)
+     | > loss_0: 1.33  (1.96)
+     | > grad_norm_0: tensor(5.4925, device='cuda:0')  (tensor(10.7484, device='cuda:0'))
+     | > loss_gen: 3.37  (2.86)
+     | > loss_kl: 2.14  (1.89)
+     | > loss_feat: 7.65  (5.35)
+     | > loss_mel: 34.72  (34.48)
+     | > loss_duration: 26.38  (25.57)
+     | > loss_1: 74.26  (70.14)
+     | > grad_norm_1: tensor(134.7093, device='cuda:0')  (tensor(221.6501, device='cuda:0'))
+     | > current_lr_0: 0.00019999695431742305 
+     | > current_lr_1: 0.00019999695431742305 
+     | > step_time: 0.29  (0.28)
+     | > loader_time: 0.0035  (0.06369792222976685)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05186298370361328 [0m(-0.006327400207519526)
+     | > avg_step_time:[92m 0.29 [0m(-0.00)
+     | > avg_loss_disc:[91m 1.92 [0m(+0.08)
+     | > avg_loss_disc_real_0:[92m 0.08 [0m(-0.02)
+     | > avg_loss_disc_real_1:[91m 0.24 [0m(+0.02)
+     | > avg_loss_disc_real_2:[91m 0.22 [0m(+0.01)
+     | > avg_loss_disc_real_3:[92m 0.20 [0m(-0.00)
+     | > avg_loss_disc_real_4:[91m 0.23 [0m(+0.02)
+     | > avg_loss_disc_real_5:[91m 0.21 [0m(+0.01)
+     | > avg_loss_0:[91m 1.92 [0m(+0.08)
+     | > avg_grad_norm_0:[91m tensor(10.3807, device='cuda:0') [0m(+tensor(2.0733, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.94 [0m(-0.08)
+     | > avg_loss_kl:[91m 1.88 [0m(+0.10)
+     | > avg_loss_feat:[92m 5.63 [0m(-0.08)
+     | > avg_loss_mel:[91m 34.27 [0m(+0.61)
+     | > avg_loss_duration:[92m 26.22 [0m(-0.10)
+     | > avg_loss_1:[91m 70.94 [0m(+0.44)
+     | > avg_grad_norm_1:[92m tensor(207.0549, device='cuda:0') [0m(tensor(-55.8813, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.90s | 加载数据: 0.05s/step | step: 0.29s | 累计: 1.40min
+
+
+[4m[1m > EPOCH: 6/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:48:48) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.0667982292175293 [0m(+0.01493524551391602)
+     | > avg_step_time:[92m 0.28 [0m(-0.01)
+     | > avg_loss_disc:[92m 1.89 [0m(-0.03)
+     | > avg_loss_disc_real_0:[91m 0.08 [0m(+0.01)
+     | > avg_loss_disc_real_1:[92m 0.23 [0m(-0.01)
+     | > avg_loss_disc_real_2:[92m 0.22 [0m(-0.01)
+     | > avg_loss_disc_real_3:[92m 0.20 [0m(-0.01)
+     | > avg_loss_disc_real_4:[92m 0.21 [0m(-0.02)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.00)
+     | > avg_loss_0:[92m 1.89 [0m(-0.03)
+     | > avg_grad_norm_0:[92m tensor(9.1097, device='cuda:0') [0m(tensor(-1.2710, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.93 [0m(-0.01)
+     | > avg_loss_kl:[92m 1.78 [0m(-0.10)
+     | > avg_loss_feat:[92m 5.56 [0m(-0.07)
+     | > avg_loss_mel:[92m 34.14 [0m(-0.12)
+     | > avg_loss_duration:[92m 26.21 [0m(-0.01)
+     | > avg_loss_1:[92m 70.63 [0m(-0.31)
+     | > avg_grad_norm_1:[91m tensor(238.3270, device='cuda:0') [0m(+tensor(31.2721, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.00s | 加载数据: 0.07s/step | step: 0.28s | 累计: 1.60min
+
+
+[4m[1m > EPOCH: 7/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:49:00) [0m
+
+[1m   --> TIME: 2026-03-02 00:49:09 -- STEP: 18/26 -- GLOBAL_STEP: 200[0m
+     | > loss_disc: 1.76  (2.36)
+     | > loss_disc_real_0: 0.10  (0.27)
+     | > loss_disc_real_1: 0.07  (0.24)
+     | > loss_disc_real_2: 0.06  (0.22)
+     | > loss_disc_real_3: 0.05  (0.21)
+     | > loss_disc_real_4: 0.05  (0.23)
+     | > loss_disc_real_5: 0.06  (0.22)
+     | > loss_0: 1.76  (2.36)
+     | > grad_norm_0: tensor(14.4989, device='cuda:0')  (tensor(9.2883, device='cuda:0'))
+     | > loss_gen: 2.55  (2.44)
+     | > loss_kl: 1.77  (1.54)
+     | > loss_feat: 5.66  (4.05)
+     | > loss_mel: 36.73  (35.60)
+     | > loss_duration: 26.20  (25.50)
+     | > loss_1: 72.91  (69.13)
+     | > grad_norm_1: tensor(184.0777, device='cuda:0')  (tensor(280.1327, device='cuda:0'))
+     | > current_lr_0: 0.00019999403049160758 
+     | > current_lr_1: 0.00019999403049160758 
+     | > step_time: 0.30  (0.28)
+     | > loader_time: 0.0036  (0.0896171596315172)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.06570688247680664 [0m(-0.0010913467407226568)
+     | > avg_step_time:[91m 0.29 [0m(+0.01)
+     | > avg_loss_disc:[91m 2.36 [0m(+0.46)
+     | > avg_loss_disc_real_0:[91m 0.25 [0m(+0.17)
+     | > avg_loss_disc_real_1:[91m 0.24 [0m(+0.01)
+     | > avg_loss_disc_real_2:[91m 0.22 [0m(+0.00)
+     | > avg_loss_disc_real_3:[91m 0.22 [0m(+0.02)
+     | > avg_loss_disc_real_4:[91m 0.23 [0m(+0.01)
+     | > avg_loss_disc_real_5:[91m 0.22 [0m(+0.01)
+     | > avg_loss_0:[91m 2.36 [0m(+0.46)
+     | > avg_grad_norm_0:[92m tensor(8.1777, device='cuda:0') [0m(tensor(-0.9321, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.47 [0m(-0.46)
+     | > avg_loss_kl:[92m 1.54 [0m(-0.24)
+     | > avg_loss_feat:[92m 4.13 [0m(-1.43)
+     | > avg_loss_mel:[91m 35.48 [0m(+1.34)
+     | > avg_loss_duration:[91m 26.35 [0m(+0.14)
+     | > avg_loss_1:[92m 69.98 [0m(-0.65)
+     | > avg_grad_norm_1:[91m tensor(277.8098, device='cuda:0') [0m(+tensor(39.4828, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 11.90s | 加载数据: 0.07s/step | step: 0.29s | 累计: 1.80min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_208.pth
+
+[4m[1m > EPOCH: 8/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:49:14) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05605298995971679 [0m(-0.009653892517089854)
+     | > avg_step_time:[92m 0.28 [0m(-0.01)
+     | > avg_loss_disc:[91m 2.37 [0m(+0.01)
+     | > avg_loss_disc_real_0:[92m 0.23 [0m(-0.02)
+     | > avg_loss_disc_real_1:[92m 0.23 [0m(-0.01)
+     | > avg_loss_disc_real_2:[92m 0.22 [0m(-0.00)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_4:[92m 0.21 [0m(-0.01)
+     | > avg_loss_disc_real_5:[92m 0.22 [0m(-0.00)
+     | > avg_loss_0:[91m 2.37 [0m(+0.01)
+     | > avg_grad_norm_0:[92m tensor(6.9956, device='cuda:0') [0m(tensor(-1.1820, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.47 [0m(-0.00)
+     | > avg_loss_kl:[91m 1.61 [0m(+0.07)
+     | > avg_loss_feat:[91m 4.24 [0m(+0.11)
+     | > avg_loss_mel:[92m 35.02 [0m(-0.46)
+     | > avg_loss_duration:[91m 26.43 [0m(+0.08)
+     | > avg_loss_1:[92m 69.78 [0m(-0.20)
+     | > avg_grad_norm_1:[92m tensor(218.8023, device='cuda:0') [0m(tensor(-59.0076, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.60s | 加载数据: 0.06s/step | step: 0.28s | 累计: 2.00min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_234.pth
+
+[4m[1m > EPOCH: 9/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:49:27) [0m
+
+[1m   --> TIME: 2026-03-02 00:49:36 -- STEP: 16/26 -- GLOBAL_STEP: 250[0m
+     | > loss_disc: 2.33  (2.19)
+     | > loss_disc_real_0: 0.14  (0.16)
+     | > loss_disc_real_1: 0.20  (0.25)
+     | > loss_disc_real_2: 0.28  (0.21)
+     | > loss_disc_real_3: 0.25  (0.21)
+     | > loss_disc_real_4: 0.28  (0.20)
+     | > loss_disc_real_5: 0.19  (0.21)
+     | > loss_0: 2.33  (2.19)
+     | > grad_norm_0: tensor(7.1418, device='cuda:0')  (tensor(9.6313, device='cuda:0'))
+     | > loss_gen: 2.54  (2.41)
+     | > loss_kl: 1.21  (1.30)
+     | > loss_feat: 3.77  (4.54)
+     | > loss_mel: 32.54  (33.64)
+     | > loss_duration: 26.49  (25.75)
+     | > loss_1: 66.54  (67.65)
+     | > grad_norm_1: tensor(597.4582, device='cuda:0')  (tensor(337.7323, device='cuda:0'))
+     | > current_lr_0: 0.00019999013210207574 
+     | > current_lr_1: 0.00019999013210207574 
+     | > step_time: 0.29  (0.28)
+     | > loader_time: 0.0046  (0.08225773274898529)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05435216903686523 [0m(-0.0017008209228515578)
+     | > avg_step_time:[91m 0.29 [0m(+0.01)
+     | > avg_loss_disc:[92m 2.19 [0m(-0.18)
+     | > avg_loss_disc_real_0:[92m 0.18 [0m(-0.05)
+     | > avg_loss_disc_real_1:[91m 0.24 [0m(+0.01)
+     | > avg_loss_disc_real_2:[92m 0.21 [0m(-0.01)
+     | > avg_loss_disc_real_3:[91m 0.22 [0m(+0.00)
+     | > avg_loss_disc_real_4:[92m 0.20 [0m(-0.01)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.01)
+     | > avg_loss_0:[92m 2.19 [0m(-0.18)
+     | > avg_grad_norm_0:[91m tensor(8.7700, device='cuda:0') [0m(+tensor(1.7743, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.61 [0m(+0.14)
+     | > avg_loss_kl:[92m 1.32 [0m(-0.30)
+     | > avg_loss_feat:[91m 4.83 [0m(+0.59)
+     | > avg_loss_mel:[92m 33.71 [0m(-1.32)
+     | > avg_loss_duration:[91m 26.61 [0m(+0.17)
+     | > avg_loss_1:[92m 69.07 [0m(-0.71)
+     | > avg_grad_norm_1:[91m tensor(275.6790, device='cuda:0') [0m(+tensor(56.8768, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 14.00s | 加载数据: 0.05s/step | step: 0.29s | 累计: 2.30min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_260.pth
+
+[4m[1m > EPOCH: 10/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:49:41) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.052891607284545915 [0m(-0.001460561752319317)
+     | > avg_step_time:[92m 0.29 [0m(-0.00)
+     | > avg_loss_disc:[91m 2.29 [0m(+0.10)
+     | > avg_loss_disc_real_0:[91m 0.23 [0m(+0.05)
+     | > avg_loss_disc_real_1:[91m 0.25 [0m(+0.01)
+     | > avg_loss_disc_real_2:[91m 0.21 [0m(+0.00)
+     | > avg_loss_disc_real_3:[92m 0.20 [0m(-0.01)
+     | > avg_loss_disc_real_4:[92m 0.18 [0m(-0.02)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.00)
+     | > avg_loss_0:[91m 2.29 [0m(+0.10)
+     | > avg_grad_norm_0:[92m tensor(7.8061, device='cuda:0') [0m(tensor(-0.9639, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.38 [0m(-0.23)
+     | > avg_loss_kl:[91m 1.37 [0m(+0.06)
+     | > avg_loss_feat:[92m 4.11 [0m(-0.72)
+     | > avg_loss_mel:[91m 34.26 [0m(+0.55)
+     | > avg_loss_duration:[91m 26.69 [0m(+0.08)
+     | > avg_loss_1:[92m 68.81 [0m(-0.27)
+     | > avg_grad_norm_1:[92m tensor(251.8119, device='cuda:0') [0m(tensor(-23.8671, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.50s | 加载数据: 0.05s/step | step: 0.29s | 累计: 2.50min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_286.pth
+
+[4m[1m > EPOCH: 11/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:49:55) [0m
+
+[1m   --> TIME: 2026-03-02 00:50:02 -- STEP: 14/26 -- GLOBAL_STEP: 300[0m
+     | > loss_disc: 2.41  (2.23)
+     | > loss_disc_real_0: 0.20  (0.21)
+     | > loss_disc_real_1: 0.24  (0.23)
+     | > loss_disc_real_2: 0.28  (0.25)
+     | > loss_disc_real_3: 0.17  (0.22)
+     | > loss_disc_real_4: 0.15  (0.19)
+     | > loss_disc_real_5: 0.24  (0.23)
+     | > loss_0: 2.41  (2.23)
+     | > grad_norm_0: tensor(9.3181, device='cuda:0')  (tensor(9.3100, device='cuda:0'))
+     | > loss_gen: 1.93  (2.41)
+     | > loss_kl: 1.29  (1.40)
+     | > loss_feat: 3.52  (4.12)
+     | > loss_mel: 35.78  (34.65)
+     | > loss_duration: 27.69  (25.65)
+     | > loss_1: 70.21  (68.22)
+     | > grad_norm_1: tensor(290.4429, device='cuda:0')  (tensor(222.1563, device='cuda:0'))
+     | > current_lr_0: 0.00019998525918730307 
+     | > current_lr_1: 0.00019998525918730307 
+     | > step_time: 0.27  (0.30)
+     | > loader_time: 0.0047  (0.10774038519178118)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.06206909179687501 [0m(+0.009177484512329095)
+     | > avg_step_time:[91m 0.29 [0m(+0.01)
+     | > avg_loss_disc:[92m 2.25 [0m(-0.04)
+     | > avg_loss_disc_real_0:[92m 0.20 [0m(-0.03)
+     | > avg_loss_disc_real_1:[92m 0.24 [0m(-0.01)
+     | > avg_loss_disc_real_2:[91m 0.24 [0m(+0.03)
+     | > avg_loss_disc_real_3:[91m 0.22 [0m(+0.01)
+     | > avg_loss_disc_real_4:[92m 0.18 [0m(-0.00)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.00)
+     | > avg_loss_0:[92m 2.25 [0m(-0.04)
+     | > avg_grad_norm_0:[91m tensor(9.0855, device='cuda:0') [0m(+tensor(1.2793, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.47 [0m(+0.09)
+     | > avg_loss_kl:[91m 1.44 [0m(+0.07)
+     | > avg_loss_feat:[91m 4.30 [0m(+0.19)
+     | > avg_loss_mel:[91m 34.56 [0m(+0.30)
+     | > avg_loss_duration:[92m 26.63 [0m(-0.06)
+     | > avg_loss_1:[91m 69.39 [0m(+0.59)
+     | > avg_grad_norm_1:[92m tensor(192.2425, device='cuda:0') [0m(tensor(-59.5694, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.70s | 加载数据: 0.06s/step | step: 0.29s | 累计: 2.70min
+
+
+[4m[1m > EPOCH: 12/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:50:06) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.06549874305725098 [0m(+0.0034296512603759696)
+     | > avg_step_time:[92m 0.28 [0m(-0.01)
+     | > avg_loss_disc:[92m 2.17 [0m(-0.09)
+     | > avg_loss_disc_real_0:[91m 0.21 [0m(+0.02)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-0.02)
+     | > avg_loss_disc_real_2:[92m 0.21 [0m(-0.04)
+     | > avg_loss_disc_real_3:[91m 0.22 [0m(+0.01)
+     | > avg_loss_disc_real_4:[91m 0.19 [0m(+0.01)
+     | > avg_loss_disc_real_5:[91m 0.22 [0m(+0.01)
+     | > avg_loss_0:[92m 2.17 [0m(-0.09)
+     | > avg_grad_norm_0:[91m tensor(9.8361, device='cuda:0') [0m(+tensor(0.7506, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.63 [0m(+0.15)
+     | > avg_loss_kl:[92m 1.30 [0m(-0.15)
+     | > avg_loss_feat:[91m 4.73 [0m(+0.43)
+     | > avg_loss_mel:[92m 33.30 [0m(-1.26)
+     | > avg_loss_duration:[91m 26.71 [0m(+0.09)
+     | > avg_loss_1:[92m 68.66 [0m(-0.73)
+     | > avg_grad_norm_1:[91m tensor(313.8228, device='cuda:0') [0m(+tensor(121.5803, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 11.80s | 加载数据: 0.07s/step | step: 0.28s | 累计: 2.90min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_338.pth
+
+[4m[1m > EPOCH: 13/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:50:20) [0m
+
+[1m   --> TIME: 2026-03-02 00:50:27 -- STEP: 12/26 -- GLOBAL_STEP: 350[0m
+     | > loss_disc: 2.18  (2.19)
+     | > loss_disc_real_0: 0.23  (0.20)
+     | > loss_disc_real_1: 0.24  (0.22)
+     | > loss_disc_real_2: 0.24  (0.23)
+     | > loss_disc_real_3: 0.25  (0.24)
+     | > loss_disc_real_4: 0.13  (0.18)
+     | > loss_disc_real_5: 0.24  (0.23)
+     | > loss_0: 2.18  (2.19)
+     | > grad_norm_0: tensor(18.7577, device='cuda:0')  (tensor(10.7482, device='cuda:0'))
+     | > loss_gen: 2.79  (2.54)
+     | > loss_kl: 1.45  (1.49)
+     | > loss_feat: 4.03  (4.44)
+     | > loss_mel: 31.84  (34.38)
+     | > loss_duration: 26.73  (25.32)
+     | > loss_1: 66.85  (68.18)
+     | > grad_norm_1: tensor(176.2652, device='cuda:0')  (tensor(230.8617, device='cuda:0'))
+     | > current_lr_0: 0.00019997941179538322 
+     | > current_lr_1: 0.00019997941179538322 
+     | > step_time: 0.27  (0.28)
+     | > loader_time: 0.0033  (0.1151157816251119)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05736806869506835 [0m(-0.008130674362182629)
+     | > avg_step_time:[92m 0.28 [0m(-0.00)
+     | > avg_loss_disc:[92m 2.16 [0m(-0.01)
+     | > avg_loss_disc_real_0:[92m 0.19 [0m(-0.02)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-0.00)
+     | > avg_loss_disc_real_2:[91m 0.22 [0m(+0.02)
+     | > avg_loss_disc_real_3:[91m 0.23 [0m(+0.01)
+     | > avg_loss_disc_real_4:[92m 0.17 [0m(-0.01)
+     | > avg_loss_disc_real_5:[92m 0.22 [0m(-0.01)
+     | > avg_loss_0:[92m 2.16 [0m(-0.01)
+     | > avg_grad_norm_0:[91m tensor(11.8904, device='cuda:0') [0m(+tensor(2.0543, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.61 [0m(-0.02)
+     | > avg_loss_kl:[91m 1.44 [0m(+0.14)
+     | > avg_loss_feat:[92m 4.63 [0m(-0.10)
+     | > avg_loss_mel:[91m 34.24 [0m(+0.94)
+     | > avg_loss_duration:[92m 26.59 [0m(-0.12)
+     | > avg_loss_1:[91m 69.51 [0m(+0.85)
+     | > avg_grad_norm_1:[92m tensor(198.5073, device='cuda:0') [0m(tensor(-115.3156, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.80s | 加载数据: 0.06s/step | step: 0.28s | 累计: 3.10min
+
+
+[4m[1m > EPOCH: 14/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:50:32) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.06689157485961914 [0m(+0.009523506164550784)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[92m 2.01 [0m(-0.15)
+     | > avg_loss_disc_real_0:[91m 0.22 [0m(+0.03)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-2.50e-05)
+     | > avg_loss_disc_real_2:[92m 0.22 [0m(-0.01)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.02)
+     | > avg_loss_disc_real_4:[92m 0.16 [0m(-0.02)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.00)
+     | > avg_loss_0:[92m 2.01 [0m(-0.15)
+     | > avg_grad_norm_0:[91m tensor(17.2187, device='cuda:0') [0m(+tensor(5.3283, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.88 [0m(+0.27)
+     | > avg_loss_kl:[92m 1.37 [0m(-0.07)
+     | > avg_loss_feat:[91m 5.38 [0m(+0.76)
+     | > avg_loss_mel:[92m 34.08 [0m(-0.16)
+     | > avg_loss_duration:[92m 26.54 [0m(-0.05)
+     | > avg_loss_1:[91m 70.26 [0m(+0.75)
+     | > avg_grad_norm_1:[91m tensor(225.3612, device='cuda:0') [0m(+tensor(26.8539, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.20s | 加载数据: 0.07s/step | step: 0.29s | 累计: 3.40min
+
+
+[4m[1m > EPOCH: 15/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:50:44) [0m
+
+[1m   --> TIME: 2026-03-02 00:50:51 -- STEP: 10/26 -- GLOBAL_STEP: 400[0m
+     | > loss_disc: 1.79  (1.87)
+     | > loss_disc_real_0: 0.11  (0.19)
+     | > loss_disc_real_1: 0.19  (0.22)
+     | > loss_disc_real_2: 0.23  (0.24)
+     | > loss_disc_real_3: 0.13  (0.21)
+     | > loss_disc_real_4: 0.09  (0.14)
+     | > loss_disc_real_5: 0.16  (0.21)
+     | > loss_0: 1.79  (1.87)
+     | > grad_norm_0: tensor(13.2285, device='cuda:0')  (tensor(13.8313, device='cuda:0'))
+     | > loss_gen: 2.96  (2.83)
+     | > loss_kl: 1.03  (1.18)
+     | > loss_feat: 5.74  (5.55)
+     | > loss_mel: 31.92  (33.30)
+     | > loss_duration: 26.05  (25.24)
+     | > loss_1: 67.70  (68.10)
+     | > grad_norm_1: tensor(277.0083, device='cuda:0')  (tensor(223.2076, device='cuda:0'))
+     | > current_lr_0: 0.00019997258998402767 
+     | > current_lr_1: 0.00019997258998402767 
+     | > step_time: 0.27  (0.29)
+     | > loader_time: 0.0027  (0.13063693046569824)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05469717979431154 [0m(-0.012194395065307596)
+     | > avg_step_time:[92m 0.29 [0m(-0.00)
+     | > avg_loss_disc:[92m 1.93 [0m(-0.09)
+     | > avg_loss_disc_real_0:[92m 0.19 [0m(-0.03)
+     | > avg_loss_disc_real_1:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_2:[92m 0.21 [0m(-0.01)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_4:[92m 0.13 [0m(-0.02)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.01)
+     | > avg_loss_0:[92m 1.93 [0m(-0.09)
+     | > avg_grad_norm_0:[92m tensor(15.6334, device='cuda:0') [0m(tensor(-1.5852, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.81 [0m(-0.07)
+     | > avg_loss_kl:[92m 1.20 [0m(-0.17)
+     | > avg_loss_feat:[91m 5.59 [0m(+0.21)
+     | > avg_loss_mel:[92m 33.76 [0m(-0.32)
+     | > avg_loss_duration:[91m 26.59 [0m(+0.05)
+     | > avg_loss_1:[92m 69.96 [0m(-0.30)
+     | > avg_grad_norm_1:[92m tensor(196.1385, device='cuda:0') [0m(tensor(-29.2226, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.00s | 加载数据: 0.06s/step | step: 0.29s | 累计: 3.60min
+
+
+[4m[1m > EPOCH: 16/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:50:56) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.06782637596130371 [0m(+0.013129196166992173)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[91m 2.04 [0m(+0.11)
+     | > avg_loss_disc_real_0:[91m 0.21 [0m(+0.02)
+     | > avg_loss_disc_real_1:[91m 0.23 [0m(+0.02)
+     | > avg_loss_disc_real_2:[91m 0.21 [0m(+0.00)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_4:[92m 0.10 [0m(-0.03)
+     | > avg_loss_disc_real_5:[92m 0.20 [0m(-0.01)
+     | > avg_loss_0:[91m 2.04 [0m(+0.11)
+     | > avg_grad_norm_0:[91m tensor(18.1078, device='cuda:0') [0m(+tensor(2.4744, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.80 [0m(-0.01)
+     | > avg_loss_kl:[91m 1.23 [0m(+0.03)
+     | > avg_loss_feat:[92m 5.24 [0m(-0.35)
+     | > avg_loss_mel:[92m 33.05 [0m(-0.71)
+     | > avg_loss_duration:[92m 26.56 [0m(-0.04)
+     | > avg_loss_1:[92m 68.88 [0m(-1.07)
+     | > avg_grad_norm_1:[91m tensor(235.5843, device='cuda:0') [0m(+tensor(39.4457, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.00s | 加载数据: 0.07s/step | step: 0.29s | 累计: 3.80min
+
+
+[4m[1m > EPOCH: 17/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:51:08) [0m
+
+[1m   --> TIME: 2026-03-02 00:51:14 -- STEP: 8/26 -- GLOBAL_STEP: 450[0m
+     | > loss_disc: 2.46  (2.17)
+     | > loss_disc_real_0: 0.29  (0.19)
+     | > loss_disc_real_1: 0.35  (0.21)
+     | > loss_disc_real_2: 0.32  (0.21)
+     | > loss_disc_real_3: 0.28  (0.21)
+     | > loss_disc_real_4: 0.06  (0.12)
+     | > loss_disc_real_5: 0.27  (0.19)
+     | > loss_0: 2.46  (2.17)
+     | > grad_norm_0: tensor(52.6564, device='cuda:0')  (tensor(31.4321, device='cuda:0'))
+     | > loss_gen: 2.30  (2.43)
+     | > loss_kl: 1.18  (1.19)
+     | > loss_feat: 3.62  (4.68)
+     | > loss_mel: 33.29  (33.57)
+     | > loss_duration: 25.92  (25.12)
+     | > loss_1: 66.32  (66.99)
+     | > grad_norm_1: tensor(818.6316, device='cuda:0')  (tensor(301.5723, device='cuda:0'))
+     | > current_lr_0: 0.00019996479382056485 
+     | > current_lr_1: 0.00019996479382056485 
+     | > step_time: 0.27  (0.29)
+     | > loader_time: 0.0025  (0.21632671356201172)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.07212034225463868 [0m(+0.004293966293334964)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[91m 2.10 [0m(+0.07)
+     | > avg_loss_disc_real_0:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-0.01)
+     | > avg_loss_disc_real_2:[92m 0.21 [0m(-0.00)
+     | > avg_loss_disc_real_3:[91m 0.23 [0m(+0.01)
+     | > avg_loss_disc_real_4:[91m 0.11 [0m(+0.01)
+     | > avg_loss_disc_real_5:[92m 0.19 [0m(-0.01)
+     | > avg_loss_0:[91m 2.10 [0m(+0.07)
+     | > avg_grad_norm_0:[91m tensor(22.7025, device='cuda:0') [0m(+tensor(4.5947, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.69 [0m(-0.11)
+     | > avg_loss_kl:[92m 1.17 [0m(-0.06)
+     | > avg_loss_feat:[92m 5.06 [0m(-0.18)
+     | > avg_loss_mel:[91m 33.06 [0m(+0.01)
+     | > avg_loss_duration:[91m 26.70 [0m(+0.15)
+     | > avg_loss_1:[92m 68.69 [0m(-0.19)
+     | > avg_grad_norm_1:[91m tensor(328.2893, device='cuda:0') [0m(+tensor(92.7050, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.10s | 加载数据: 0.07s/step | step: 0.29s | 累计: 4.00min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_468.pth
+
+[4m[1m > EPOCH: 18/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:51:22) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.04993906021118164 [0m(-0.022181282043457033)
+     | > avg_step_time:[92m 0.28 [0m(-0.00)
+     | > avg_loss_disc:[92m 1.96 [0m(-0.14)
+     | > avg_loss_disc_real_0:[92m 0.20 [0m(-0.01)
+     | > avg_loss_disc_real_1:[91m 0.22 [0m(+0.00)
+     | > avg_loss_disc_real_2:[91m 0.21 [0m(+0.00)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.01)
+     | > avg_loss_disc_real_4:[92m 0.10 [0m(-0.01)
+     | > avg_loss_disc_real_5:[91m 0.20 [0m(+0.01)
+     | > avg_loss_0:[92m 1.96 [0m(-0.14)
+     | > avg_grad_norm_0:[92m tensor(16.7696, device='cuda:0') [0m(tensor(-5.9328, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.84 [0m(+0.15)
+     | > avg_loss_kl:[92m 1.07 [0m(-0.10)
+     | > avg_loss_feat:[91m 5.35 [0m(+0.29)
+     | > avg_loss_mel:[91m 33.32 [0m(+0.26)
+     | > avg_loss_duration:[92m 26.70 [0m(-0.01)
+     | > avg_loss_1:[91m 69.28 [0m(+0.59)
+     | > avg_grad_norm_1:[91m tensor(360.2224, device='cuda:0') [0m(+tensor(31.9331, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.60s | 加载数据: 0.05s/step | step: 0.28s | 累计: 4.20min
+
+
+[4m[1m > EPOCH: 19/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:51:34) [0m
+
+[1m   --> TIME: 2026-03-02 00:51:39 -- STEP: 6/26 -- GLOBAL_STEP: 500[0m
+     | > loss_disc: 1.87  (1.94)
+     | > loss_disc_real_0: 0.20  (0.16)
+     | > loss_disc_real_1: 0.22  (0.19)
+     | > loss_disc_real_2: 0.18  (0.20)
+     | > loss_disc_real_3: 0.18  (0.19)
+     | > loss_disc_real_4: 0.07  (0.10)
+     | > loss_disc_real_5: 0.14  (0.19)
+     | > loss_0: 1.87  (1.94)
+     | > grad_norm_0: tensor(31.6291, device='cuda:0')  (tensor(20.8557, device='cuda:0'))
+     | > loss_gen: 3.45  (2.80)
+     | > loss_kl: 1.18  (1.03)
+     | > loss_feat: 7.24  (5.81)
+     | > loss_mel: 34.34  (34.29)
+     | > loss_duration: 25.31  (25.13)
+     | > loss_1: 71.52  (69.07)
+     | > grad_norm_1: tensor(92.7999, device='cuda:0')  (tensor(272.8762, device='cuda:0'))
+     | > current_lr_0: 0.0001999560233819398 
+     | > current_lr_1: 0.0001999560233819398 
+     | > step_time: 0.27  (0.29)
+     | > loader_time: 0.0026  (0.23945295810699463)
+
+
+ > CHECKPOINT : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/checkpoint_500.pth
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.060353260040283206 [0m(+0.010414199829101564)
+     | > avg_step_time:[92m 0.28 [0m(-0.00)
+     | > avg_loss_disc:[91m 2.28 [0m(+0.31)
+     | > avg_loss_disc_real_0:[91m 0.22 [0m(+0.02)
+     | > avg_loss_disc_real_1:[91m 0.23 [0m(+0.01)
+     | > avg_loss_disc_real_2:[91m 0.24 [0m(+0.03)
+     | > avg_loss_disc_real_3:[91m 0.23 [0m(+0.02)
+     | > avg_loss_disc_real_4:[91m 0.15 [0m(+0.05)
+     | > avg_loss_disc_real_5:[91m 0.21 [0m(+0.01)
+     | > avg_loss_0:[91m 2.28 [0m(+0.31)
+     | > avg_grad_norm_0:[91m tensor(19.3554, device='cuda:0') [0m(+tensor(2.5857, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.65 [0m(-0.19)
+     | > avg_loss_kl:[91m 1.38 [0m(+0.31)
+     | > avg_loss_feat:[92m 4.64 [0m(-0.71)
+     | > avg_loss_mel:[91m 34.29 [0m(+0.97)
+     | > avg_loss_duration:[92m 26.65 [0m(-0.05)
+     | > avg_loss_1:[91m 69.61 [0m(+0.33)
+     | > avg_grad_norm_1:[92m tensor(149.2185, device='cuda:0') [0m(tensor(-211.0040, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 14.90s | 加载数据: 0.06s/step | step: 0.28s | 累计: 4.40min
+
+
+[4m[1m > EPOCH: 20/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:51:49) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.08950152397155761 [0m(+0.029148263931274405)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[91m 2.54 [0m(+0.27)
+     | > avg_loss_disc_real_0:[91m 0.23 [0m(+0.01)
+     | > avg_loss_disc_real_1:[91m 0.26 [0m(+0.03)
+     | > avg_loss_disc_real_2:[91m 0.25 [0m(+0.01)
+     | > avg_loss_disc_real_3:[91m 0.27 [0m(+0.04)
+     | > avg_loss_disc_real_4:[91m 0.18 [0m(+0.03)
+     | > avg_loss_disc_real_5:[91m 0.27 [0m(+0.05)
+     | > avg_loss_0:[91m 2.54 [0m(+0.27)
+     | > avg_grad_norm_0:[91m tensor(21.7291, device='cuda:0') [0m(+tensor(2.3737, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.55 [0m(-0.10)
+     | > avg_loss_kl:[92m 1.30 [0m(-0.08)
+     | > avg_loss_feat:[92m 3.83 [0m(-0.81)
+     | > avg_loss_mel:[91m 35.14 [0m(+0.84)
+     | > avg_loss_duration:[92m 26.51 [0m(-0.14)
+     | > avg_loss_1:[92m 69.32 [0m(-0.30)
+     | > avg_grad_norm_1:[91m tensor(169.7242, device='cuda:0') [0m(+tensor(20.5057, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.70s | 加载数据: 0.09s/step | step: 0.29s | 累计: 4.60min
+
+
+[4m[1m > EPOCH: 21/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:52:02) [0m
+
+[1m   --> TIME: 2026-03-02 00:52:06 -- STEP: 4/26 -- GLOBAL_STEP: 550[0m
+     | > loss_disc: 2.35  (2.31)
+     | > loss_disc_real_0: 0.11  (0.14)
+     | > loss_disc_real_1: 0.24  (0.17)
+     | > loss_disc_real_2: 0.33  (0.20)
+     | > loss_disc_real_3: 0.19  (0.18)
+     | > loss_disc_real_4: 0.32  (0.20)
+     | > loss_disc_real_5: 0.13  (0.20)
+     | > loss_0: 2.35  (2.31)
+     | > grad_norm_0: tensor(16.8587, device='cuda:0')  (tensor(15.1206, device='cuda:0'))
+     | > loss_gen: 2.52  (2.12)
+     | > loss_kl: 1.26  (1.32)
+     | > loss_feat: 3.56  (4.12)
+     | > loss_mel: 33.94  (34.22)
+     | > loss_duration: 26.08  (25.43)
+     | > loss_1: 67.36  (67.21)
+     | > grad_norm_1: tensor(102.4134, device='cuda:0')  (tensor(81.6050, device='cuda:0'))
+     | > current_lr_0: 0.0001999462787547132 
+     | > current_lr_1: 0.0001999462787547132 
+     | > step_time: 0.26  (0.33)
+     | > loader_time: 0.0025  (0.34394657611846924)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05829223632812499 [0m(-0.031209287643432622)
+     | > avg_step_time:[91m 0.29 [0m(+0.01)
+     | > avg_loss_disc:[92m 2.24 [0m(-0.30)
+     | > avg_loss_disc_real_0:[92m 0.18 [0m(-0.06)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-0.04)
+     | > avg_loss_disc_real_2:[92m 0.23 [0m(-0.02)
+     | > avg_loss_disc_real_3:[92m 0.20 [0m(-0.06)
+     | > avg_loss_disc_real_4:[92m 0.18 [0m(-0.01)
+     | > avg_loss_disc_real_5:[92m 0.22 [0m(-0.05)
+     | > avg_loss_0:[92m 2.24 [0m(-0.30)
+     | > avg_grad_norm_0:[92m tensor(12.7981, device='cuda:0') [0m(tensor(-8.9309, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.45 [0m(-0.10)
+     | > avg_loss_kl:[92m 1.04 [0m(-0.26)
+     | > avg_loss_feat:[91m 4.29 [0m(+0.46)
+     | > avg_loss_mel:[92m 33.58 [0m(-1.56)
+     | > avg_loss_duration:[91m 26.63 [0m(+0.13)
+     | > avg_loss_1:[92m 67.99 [0m(-1.33)
+     | > avg_grad_norm_1:[92m tensor(165.2267, device='cuda:0') [0m(tensor(-4.4975, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 12.10s | 加载数据: 0.06s/step | step: 0.29s | 累计: 4.80min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_572.pth
+
+[4m[1m > EPOCH: 22/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:52:16) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.06301874160766602 [0m(+0.004726505279541028)
+     | > avg_step_time:[92m 0.28 [0m(-0.01)
+     | > avg_loss_disc:[91m 2.41 [0m(+0.18)
+     | > avg_loss_disc_real_0:[91m 0.22 [0m(+0.04)
+     | > avg_loss_disc_real_1:[91m 0.24 [0m(+0.02)
+     | > avg_loss_disc_real_2:[92m 0.23 [0m(-0.00)
+     | > avg_loss_disc_real_3:[91m 0.23 [0m(+0.03)
+     | > avg_loss_disc_real_4:[91m 0.21 [0m(+0.03)
+     | > avg_loss_disc_real_5:[91m 0.23 [0m(+0.01)
+     | > avg_loss_0:[91m 2.41 [0m(+0.18)
+     | > avg_grad_norm_0:[91m tensor(15.1022, device='cuda:0') [0m(+tensor(2.3040, device='cuda:0'))
+     | > avg_loss_gen:[92m 2.41 [0m(-0.04)
+     | > avg_loss_kl:[92m 0.91 [0m(-0.13)
+     | > avg_loss_feat:[92m 3.96 [0m(-0.33)
+     | > avg_loss_mel:[91m 33.66 [0m(+0.08)
+     | > avg_loss_duration:[91m 26.82 [0m(+0.19)
+     | > avg_loss_1:[92m 67.75 [0m(-0.24)
+     | > avg_grad_norm_1:[91m tensor(254.1368, device='cuda:0') [0m(+tensor(88.9101, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.90s | 加载数据: 0.06s/step | step: 0.28s | 累计: 5.10min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_598.pth
+
+[4m[1m > EPOCH: 23/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:52:30) [0m
+
+[1m   --> TIME: 2026-03-02 00:52:33 -- STEP: 2/26 -- GLOBAL_STEP: 600[0m
+     | > loss_disc: 2.58  (2.67)
+     | > loss_disc_real_0: 0.18  (0.25)
+     | > loss_disc_real_1: 0.32  (0.36)
+     | > loss_disc_real_2: 0.34  (0.36)
+     | > loss_disc_real_3: 0.21  (0.27)
+     | > loss_disc_real_4: 0.30  (0.21)
+     | > loss_disc_real_5: 0.27  (0.31)
+     | > loss_0: 2.58  (2.67)
+     | > grad_norm_0: tensor(6.4072, device='cuda:0')  (tensor(8.4376, device='cuda:0'))
+     | > loss_gen: 2.47  (2.60)
+     | > loss_kl: 1.04  (1.14)
+     | > loss_feat: 3.48  (3.26)
+     | > loss_mel: 33.37  (34.37)
+     | > loss_duration: 25.00  (24.95)
+     | > loss_1: 65.36  (66.31)
+     | > grad_norm_1: tensor(274.7231, device='cuda:0')  (tensor(266.8037, device='cuda:0'))
+     | > current_lr_0: 0.0001999355600350606 
+     | > current_lr_1: 0.0001999355600350606 
+     | > step_time: 0.33  (0.32)
+     | > loader_time: 0.4265  (0.4207267761230469)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.058024034500122064 [0m(-0.004994707107543954)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[92m 2.34 [0m(-0.08)
+     | > avg_loss_disc_real_0:[92m 0.20 [0m(-0.02)
+     | > avg_loss_disc_real_1:[91m 0.24 [0m(+0.00)
+     | > avg_loss_disc_real_2:[91m 0.25 [0m(+0.02)
+     | > avg_loss_disc_real_3:[91m 0.24 [0m(+0.01)
+     | > avg_loss_disc_real_4:[92m 0.19 [0m(-0.02)
+     | > avg_loss_disc_real_5:[91m 0.24 [0m(+0.00)
+     | > avg_loss_0:[92m 2.34 [0m(-0.08)
+     | > avg_grad_norm_0:[91m tensor(15.4182, device='cuda:0') [0m(+tensor(0.3160, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.45 [0m(+0.05)
+     | > avg_loss_kl:[91m 0.91 [0m(+0.00)
+     | > avg_loss_feat:[91m 4.07 [0m(+0.11)
+     | > avg_loss_mel:[92m 33.18 [0m(-0.48)
+     | > avg_loss_duration:[92m 26.82 [0m(-0.00)
+     | > avg_loss_1:[92m 67.44 [0m(-0.31)
+     | > avg_grad_norm_1:[91m tensor(277.0066, device='cuda:0') [0m(+tensor(22.8698, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 13.40s | 加载数据: 0.06s/step | step: 0.29s | 累计: 5.30min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e/best_model_624.pth
+
+[4m[1m > EPOCH: 24/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:52:43) [0m
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.05940545082092285 [0m(+0.0013814163208007851)
+     | > avg_step_time:[91m 0.29 [0m(+0.00)
+     | > avg_loss_disc:[91m 2.42 [0m(+0.08)
+     | > avg_loss_disc_real_0:[92m 0.19 [0m(-0.01)
+     | > avg_loss_disc_real_1:[92m 0.23 [0m(-0.02)
+     | > avg_loss_disc_real_2:[92m 0.23 [0m(-0.02)
+     | > avg_loss_disc_real_3:[92m 0.23 [0m(-0.01)
+     | > avg_loss_disc_real_4:[91m 0.21 [0m(+0.02)
+     | > avg_loss_disc_real_5:[92m 0.23 [0m(-0.01)
+     | > avg_loss_0:[91m 2.42 [0m(+0.08)
+     | > avg_grad_norm_0:[92m tensor(13.8984, device='cuda:0') [0m(tensor(-1.5197, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.46 [0m(+0.01)
+     | > avg_loss_kl:[91m 0.99 [0m(+0.08)
+     | > avg_loss_feat:[91m 4.24 [0m(+0.16)
+     | > avg_loss_mel:[92m 32.77 [0m(-0.41)
+     | > avg_loss_duration:[91m 26.92 [0m(+0.10)
+     | > avg_loss_1:[92m 67.39 [0m(-0.05)
+     | > avg_grad_norm_1:[91m tensor(346.0050, device='cuda:0') [0m(+tensor(68.9984, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 14.00s | 加载数据: 0.06s/step | step: 0.29s | 累计: 5.50min
+
+
+[4m[1m > EPOCH: 25/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+47AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:52:55) [0m

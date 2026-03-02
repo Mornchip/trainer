@@ -1,0 +1,194 @@
+📄 训练日志已写入: /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/train_log_20260302_005301.txt
+============================================================
+✅ 检测到数据已准备，跳过数据准备与清洗，直接训练: /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/segments/cleaned_audio
+🆕 从头开始训练：不加载 checkpoint
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/librosa/core/intervals.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_filename
+📊 准备完成: train+val=456, 词表字符数=728
+ | > Found 416 files in /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/segments/cleaned_audio
+ > Setting up Audio Processor...
+ | > sample_rate:22050
+ | > resample:False
+ | > num_mels:80
+ | > log_func:np.log10
+ | > min_level_db:0
+ | > frame_shift_ms:None
+ | > frame_length_ms:None
+ | > ref_level_db:None
+ | > fft_size:1024
+ | > power:None
+ | > preemphasis:0.0
+ | > griffin_lim_iters:None
+ | > signal_norm:None
+ | > symmetric_norm:None
+ | > mel_fmin:0
+ | > mel_fmax:None
+ | > pitch_fmin:None
+ | > pitch_fmax:None
+ | > spec_gain:20.0
+ | > stft_pad_mode:reflect
+ | > max_norm:1.0
+ | > clip_norm:True
+ | > do_trim_silence:False
+ | > trim_db:60
+ | > do_sound_norm:False
+ | > do_amp_to_db_linear:True
+ | > do_amp_to_db_mel:True
+ | > do_rms_norm:False
+ | > db_level:None
+ | > stats_path:None
+ | > base:10
+ | > hop_length:256
+ | > win_length:1024
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: False
+ | > Precision: float32
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 208
+ | > Num. of Torch Threads: 25
+ | > Torch seed: 54321
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ | > Torch TF32 MatMul: False
+ > Start Tensorboard: tensorboard --logdir=/root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+53AM-1c93a8e
+
+ > Model has 83176876 parameters
+🎯 开始训练 VITS（本文件自包含）...
+   学习率: 5e-06 → 2000 轮时降至 50% 即 2.50e-06，grad_clip=[1.0, 1.0]
+
+[4m[1m > EPOCH: 0/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+53AM-1c93a8e
+
+
+> DataLoader initialization
+| > Tokenizer:
+	| > add_blank: True
+	| > use_eos_bos: False
+	| > use_phonemes: False
+| > Number of instances : 416
+ | > Preprocessing samples
+ | > Max text length: 43
+ | > Min text length: 4
+ | > Avg text length: 17.213942307692307
+ | 
+ | > Max audio length: 141031.0
+ | > Min audio length: 33169.0
+ | > Avg audio length: 60497.814903846156
+ | > Num. instances discarded samples: 0
+ | > Batch group size: 0.
+
+[1m > TRAINING (2026-03-02 00:53:17) [0m
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/torch/functional.py:681: UserWarning: stft with return_complex=False is deprecated. In a future pytorch release, stft will return complex tensors for all inputs, and return_complex=False will raise an error.
+Note: you can still call torch.view_as_real on the complex output to recover the old return format. (Triggered internally at /pytorch/aten/src/ATen/native/SpectralOps.cpp:874.)
+  return _VF.stft(  # type: ignore[attr-defined]
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/TTS/tts/models/vits.py:1273: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):  # use float32 for the criterion
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/TTS/tts/models/vits.py:1284: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):
+/root/autodl-tmp/zlynew/.venv/lib/python3.10/site-packages/TTS/tts/models/vits.py:1311: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):  # use float32 for the criterion
+
+[1m   --> TIME: 2026-03-02 00:53:21 -- STEP: 0/26 -- GLOBAL_STEP: 0[0m
+     | > loss_disc: 5.95  (5.95)
+     | > loss_disc_real_0: 1.01  (1.01)
+     | > loss_disc_real_1: 1.03  (1.03)
+     | > loss_disc_real_2: 0.97  (0.97)
+     | > loss_disc_real_3: 0.96  (0.96)
+     | > loss_disc_real_4: 1.01  (1.01)
+     | > loss_disc_real_5: 0.98  (0.98)
+     | > loss_0: 5.95  (5.95)
+     | > grad_norm_0: tensor(6.5217, device='cuda:0')  (tensor(6.5217, device='cuda:0'))
+     | > loss_gen: 4.52  (4.52)
+     | > loss_kl: 179.51  (179.51)
+     | > loss_feat: 0.53  (0.53)
+     | > loss_mel: 66.48  (66.48)
+     | > loss_duration: 20.83  (20.83)
+     | > loss_1: 271.87  (271.87)
+     | > grad_norm_1: tensor(1578.4744, device='cuda:0')  (tensor(1578.4744, device='cuda:0'))
+     | > current_lr_0: 0.0002 
+     | > current_lr_1: 0.0002 
+     | > step_time: 1.35  (1.35)
+     | > loader_time: 2.103  (2.1030433177948)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time: 0.00469585418701172 [0m(+0)
+     | > avg_step_time: 0.30 [0m(+0)
+     | > avg_loss_disc: 2.85 [0m(+0)
+     | > avg_loss_disc_real_0: 0.27 [0m(+0)
+     | > avg_loss_disc_real_1: 0.26 [0m(+0)
+     | > avg_loss_disc_real_2: 0.26 [0m(+0)
+     | > avg_loss_disc_real_3: 0.27 [0m(+0)
+     | > avg_loss_disc_real_4: 0.27 [0m(+0)
+     | > avg_loss_disc_real_5: 0.27 [0m(+0)
+     | > avg_loss_0: 2.85 [0m(+0)
+     | > avg_grad_norm_0: tensor(4.2237, device='cuda:0') [0m(+0)
+     | > avg_loss_gen: 2.02 [0m(+0)
+     | > avg_loss_kl: 20.65 [0m(+0)
+     | > avg_loss_feat: 2.01 [0m(+0)
+     | > avg_loss_mel: 44.20 [0m(+0)
+     | > avg_loss_duration: 26.33 [0m(+0)
+     | > avg_loss_1: 95.21 [0m(+0)
+     | > avg_grad_norm_1: tensor(197.1539, device='cuda:0') [0m(+0)
+  [Epoch 计时] 本轮训练: 14.50s | 加载数据: 0.01s/step | step: 0.30s | 累计: 0.20min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+53AM-1c93a8e/best_model_26.pth
+
+[4m[1m > EPOCH: 1/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+53AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:53:34) [0m
+
+[1m   --> TIME: 2026-03-02 00:53:45 -- STEP: 24/26 -- GLOBAL_STEP: 50[0m
+     | > loss_disc: 2.50  (2.42)
+     | > loss_disc_real_0: 0.16  (0.22)
+     | > loss_disc_real_1: 0.21  (0.22)
+     | > loss_disc_real_2: 0.17  (0.22)
+     | > loss_disc_real_3: 0.21  (0.21)
+     | > loss_disc_real_4: 0.20  (0.22)
+     | > loss_disc_real_5: 0.23  (0.21)
+     | > loss_0: 2.50  (2.42)
+     | > grad_norm_0: tensor(28.6390, device='cuda:0')  (tensor(12.4136, device='cuda:0'))
+     | > loss_gen: 2.40  (2.21)
+     | > loss_kl: 3.71  (4.28)
+     | > loss_feat: 5.94  (3.91)
+     | > loss_mel: 37.98  (37.56)
+     | > loss_duration: 28.69  (25.38)
+     | > loss_1: 78.72  (73.34)
+     | > grad_norm_1: tensor(216.4577, device='cuda:0')  (tensor(117.5033, device='cuda:0'))
+     | > current_lr_0: 0.00019999987817209572 
+     | > current_lr_1: 0.00019999987817209572 
+     | > step_time: 0.29  (0.29)
+     | > loader_time: 0.0054  (0.07579996188481648)
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.07296080589294433 [0m(+0.06826495170593261)
+     | > avg_step_time:[92m 0.29 [0m(-0.01)
+     | > avg_loss_disc:[92m 2.42 [0m(-0.42)
+     | > avg_loss_disc_real_0:[92m 0.21 [0m(-0.05)
+     | > avg_loss_disc_real_1:[92m 0.22 [0m(-0.04)
+     | > avg_loss_disc_real_2:[92m 0.22 [0m(-0.04)
+     | > avg_loss_disc_real_3:[92m 0.21 [0m(-0.07)
+     | > avg_loss_disc_real_4:[92m 0.22 [0m(-0.05)
+     | > avg_loss_disc_real_5:[92m 0.21 [0m(-0.06)
+     | > avg_loss_0:[92m 2.42 [0m(-0.42)
+     | > avg_grad_norm_0:[91m tensor(12.6786, device='cuda:0') [0m(+tensor(8.4548, device='cuda:0'))
+     | > avg_loss_gen:[91m 2.24 [0m(+0.23)
+     | > avg_loss_kl:[92m 4.26 [0m(-16.39)
+     | > avg_loss_feat:[91m 3.96 [0m(+1.95)
+     | > avg_loss_mel:[92m 37.40 [0m(-6.79)
+     | > avg_loss_duration:[92m 25.46 [0m(-0.88)
+     | > avg_loss_1:[92m 73.33 [0m(-21.88)
+     | > avg_grad_norm_1:[92m tensor(116.3611, device='cuda:0') [0m(tensor(-80.7928, device='cuda:0'))
+  [Epoch 计时] 本轮训练: 14.00s | 加载数据: 0.07s/step | step: 0.29s | 累计: 0.50min
+
+ > BEST MODEL : /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+53AM-1c93a8e/best_model_52.pth
+
+[4m[1m > EPOCH: 2/3000[0m
+ --> /root/autodl-tmp/zlynew/womenvoice/lasttraincodebuddy/vits_codebuddy_output/vits_codebuddy_voice-March-02-2026_12+53AM-1c93a8e
+
+[1m > TRAINING (2026-03-02 00:53:48) [0m

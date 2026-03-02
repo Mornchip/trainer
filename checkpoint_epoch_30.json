@@ -1,0 +1,7 @@
+{
+  "epoch": 30,
+  "train_loss": 0.0,
+  "val_loss": 0.0,
+  "best_val_loss": 0.0,
+  "history_len": 30
+}
